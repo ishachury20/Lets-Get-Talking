@@ -6,7 +6,7 @@
 <title>Let's Get Talking — Card Game for Fertility Journeys</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -17,8 +17,8 @@
     --aqua-light: #D6F0EC;
     --teal-mid: #2B7368;
     --footer-bg: #002C2B;
-    --ff-serif: 'Playfair Display', Georgia, serif;
-    --ff-sans: 'DM Sans', system-ui, sans-serif;
+    --ff-serif: 'Inria Serif', Georgia, serif;
+    --ff-sans: 'Lato', system-ui, sans-serif;
     --radius-sm: 8px;
     --radius-md: 16px;
     --radius-lg: 24px;
@@ -151,13 +151,13 @@
   .attr-check svg { width: 9px; height: 9px; stroke: var(--teal-sea); }
   .game-takeaway { margin-top: 1rem; padding-top: 0.875rem; border-top: 1px solid rgba(0,73,71,0.08); font-size: 0.8rem; color: var(--teal-sea); font-style: italic; }
 
-  /* Condensed why-game — single paragraph + 2-col grid */
+  /* Condensed why-game — single paragraph + 4-col grid */
   .why-game { margin: 3rem 0 4rem; }
   .why-game h3 { font-family: var(--ff-serif); font-size: 1.5rem; font-weight: 600; color: var(--teal-deep); margin-bottom: 0.875rem; }
   .why-game-intro { font-size: 1rem; font-weight: 300; color: var(--teal-mid); line-height: 1.8; max-width: 700px; margin-bottom: 2rem; }
-  .psych-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1rem; }
-  .psych-card { background: var(--aqua-light); border-radius: var(--radius-md); padding: 1.25rem 1.5rem; display: flex; gap: 1rem; align-items: flex-start; border-left: 3px solid var(--teal-sea); }
-  .psych-card-icon { font-size: 1.25rem; flex-shrink: 0; margin-top: 2px; }
+  .psych-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; }
+  .psych-card { background: var(--aqua-light); border-radius: var(--radius-md); padding: 1.5rem 1.25rem; display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start; border-top: 3px solid var(--teal-sea); border-left: none; }
+  .psych-card-icon { font-size: 1.5rem; flex-shrink: 0; }
   .psych-card h4 { font-family: var(--ff-serif); font-size: 0.9375rem; font-weight: 600; color: var(--teal-deep); margin-bottom: 0.2rem; }
   .psych-card p { font-size: 0.8125rem; font-weight: 300; color: var(--teal-mid); line-height: 1.55; }
 
@@ -262,6 +262,21 @@
   .fade-up:nth-child(2) { transition-delay: 0.1s; }
   .fade-up:nth-child(3) { transition-delay: 0.2s; }
 
+  /* Staggered entry for 4-up grids */
+  .psych-grid .fade-up:nth-child(1) { transition-delay: 0.05s; }
+  .psych-grid .fade-up:nth-child(2) { transition-delay: 0.15s; }
+  .psych-grid .fade-up:nth-child(3) { transition-delay: 0.25s; }
+  .psych-grid .fade-up:nth-child(4) { transition-delay: 0.35s; }
+
+  .dd-track .fade-up:nth-child(1) { transition-delay: 0.05s; }
+  .dd-track .fade-up:nth-child(2) { transition-delay: 0.2s; }
+  .dd-track .fade-up:nth-child(3) { transition-delay: 0.35s; }
+  .dd-track .fade-up:nth-child(4) { transition-delay: 0.5s; }
+
+  /* Slightly different entry for the diamond shapes — they grow in */
+  .dd-phase.fade-up { transform: translateY(24px) scale(0.94); }
+  .dd-phase.fade-up.visible { transform: translateY(0) scale(1); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.34, 1.4, 0.64, 1); }
+
   /* ===================== RESPONSIVE ===================== */
   @media (max-width: 960px) {
     .hero { grid-template-columns: 1fr; padding-top: 90px; gap: 2.5rem; min-height: auto; padding-bottom: 4rem; }
@@ -273,7 +288,7 @@
     .stat-card { border-right: none; border-bottom: 1px solid rgba(174,225,218,0.1); }
     .insights-grid { grid-template-columns: 1fr; }
     .games-grid { grid-template-columns: 1fr; }
-    .psych-grid { grid-template-columns: 1fr; }
+    .psych-grid { grid-template-columns: repeat(2, 1fr); }
     .product-layout { grid-template-columns: 1fr; gap: 3rem; }
     .card-fan { height: 300px; }
     .fan-card { width: 150px; height: 212px; }
@@ -504,31 +519,31 @@
 
   <!-- Condensed Why a game -->
   <div class="why-game">
-    <h3>Why a game format?</h3>
-    <p class="why-game-intro">Games offer something worksheets and therapy homework don't: <em>psychological distancing</em>. When emotional content is framed as play, the game becomes the "agent" asking the difficult question — not the facilitator or the partner — which significantly lowers the social stakes. Men consistently reported being more willing to engage with sensitive topics when the format felt structured rather than open-ended.</p>
+    <h3 class="fade-up">Why a game format?</h3>
+    <p class="why-game-intro fade-up">Games offer something worksheets and therapy homework don't: <em>psychological distancing</em>. When emotional content is framed as play, the game becomes the "agent" asking the difficult question — not the facilitator or the partner — which significantly lowers the social stakes. Men consistently reported being more willing to engage with sensitive topics when the format felt structured rather than open-ended.</p>
     <div class="psych-grid">
-      <div class="psych-card">
+      <div class="psych-card fade-up">
         <div class="psych-card-icon">🎭</div>
         <div>
           <h4>Psychological Distancing</h4>
           <p>"The card said it" — creates safe distance from difficult prompts and reduces defensiveness.</p>
         </div>
       </div>
-      <div class="psych-card">
+      <div class="psych-card fade-up">
         <div class="psych-card-icon">🔄</div>
         <div>
           <h4>Structured Unpredictability</h4>
           <p>Rules give structure; random draws create discovery. Neither person controls the topic.</p>
         </div>
       </div>
-      <div class="psych-card">
+      <div class="psych-card fade-up">
         <div class="psych-card-icon">📈</div>
         <div>
           <h4>Progressive Depth</h4>
           <p>Starting shallow and moving deeper scaffolds intimacy rather than demanding it upfront.</p>
         </div>
       </div>
-      <div class="psych-card">
+      <div class="psych-card fade-up">
         <div class="psych-card-icon">🤝</div>
         <div>
           <h4>Shared Experience</h4>
@@ -540,31 +555,31 @@
 
   <!-- Double Diamond -->
   <div class="dd-section">
-    <div class="dd-title">The Double Diamond Framework</div>
-    <div class="dd-subtitle">How divergent research converged on this specific solution</div>
+    <div class="dd-title fade-up">The Double Diamond Framework</div>
+    <div class="dd-subtitle fade-up">How divergent research converged on this specific solution</div>
     <div class="dd-track">
-      <div class="dd-phase">
+      <div class="dd-phase fade-up">
         <div class="dd-diamond">
           <svg viewBox="0 0 200 110" preserveAspectRatio="none"><polygon points="0,55 100,5 200,55 100,105" fill="rgba(174,225,218,0.07)" stroke="rgba(174,225,218,0.25)" stroke-width="1"/></svg>
           <div class="dd-phase-label">Discover</div>
         </div>
         <div class="dd-sublabel">Secondary research<br>Literature review<br>Statistics gathering</div>
       </div>
-      <div class="dd-phase">
+      <div class="dd-phase fade-up">
         <div class="dd-diamond">
           <svg viewBox="0 0 200 110" preserveAspectRatio="none"><polygon points="0,55 100,5 200,55 100,105" fill="rgba(174,225,218,0.11)" stroke="rgba(174,225,218,0.35)" stroke-width="1"/></svg>
           <div class="dd-phase-label">Define</div>
         </div>
         <div class="dd-sublabel">Insight synthesis<br>HMW framing<br>Target audience</div>
       </div>
-      <div class="dd-phase">
+      <div class="dd-phase fade-up">
         <div class="dd-diamond">
           <svg viewBox="0 0 200 110" preserveAspectRatio="none"><polygon points="0,55 100,5 200,55 100,105" fill="rgba(82,154,141,0.14)" stroke="rgba(82,154,141,0.45)" stroke-width="1"/></svg>
           <div class="dd-phase-label">Develop</div>
         </div>
         <div class="dd-sublabel">Market research<br>Game format ideation<br>Prompt writing</div>
       </div>
-      <div class="dd-phase">
+      <div class="dd-phase fade-up">
         <div class="dd-diamond">
           <svg viewBox="0 0 200 110" preserveAspectRatio="none"><polygon points="0,55 100,5 200,55 100,105" fill="rgba(82,154,141,0.22)" stroke="rgba(82,154,141,0.65)" stroke-width="1.5"/></svg>
           <div class="dd-phase-label">Deliver</div>
@@ -610,9 +625,27 @@
             <h4>Progressive Depth Levels</h4>
             <p>Ring icons on each card corner indicate emotional depth. Start shallow and work deeper at your own pace.</p>
             <div class="level-badges">
-              <span class="level-badge level-1">● Level 1</span>
-              <span class="level-badge level-2">◎ Level 2</span>
-              <span class="level-badge level-3">⊚ Level 3</span>
+              <span class="level-badge level-1">
+                <svg viewBox="0 0 14 14" width="11" height="11" aria-hidden="true">
+                  <circle cx="7" cy="7" r="2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+                </svg>
+                Level 1
+              </span>
+              <span class="level-badge level-2">
+                <svg viewBox="0 0 14 14" width="11" height="11" aria-hidden="true">
+                  <circle cx="7" cy="7" r="2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+                  <circle cx="7" cy="7" r="4.5" fill="none" stroke="currentColor" stroke-width="1.2"/>
+                </svg>
+                Level 2
+              </span>
+              <span class="level-badge level-3">
+                <svg viewBox="0 0 14 14" width="11" height="11" aria-hidden="true">
+                  <circle cx="7" cy="7" r="2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+                  <circle cx="7" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="1.2"/>
+                  <circle cx="7" cy="7" r="6" fill="none" stroke="currentColor" stroke-width="1.2"/>
+                </svg>
+                Level 3
+              </span>
             </div>
           </div>
         </li>
