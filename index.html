@@ -379,13 +379,13 @@
   <div class="hero-right">
     <div class="card-stack-hero">
       <div class="card-item card-item-1">
-        <img src="/mnt/user-data/uploads/Card-Regular-lv1.png" alt="Regular Level 1 card">
+        <img src="./Images/Card-Regular-lv1.png" alt="Regular Level 1 card">
       </div>
       <div class="card-item card-item-2">
-        <img src="/mnt/user-data/uploads/Card-Couples-lv2.png" alt="Couple Level 2 card">
+        <img src="./Images/Card-Couples-lv2.png" alt="Couple Level 2 card">
       </div>
       <div class="card-item card-item-3">
-        <img src="/mnt/user-data/uploads/Card-Back.png" alt="Card back">
+        <img src="./Images/Card-Back.png" alt="Card back">
       </div>
     </div>
   </div>
@@ -597,11 +597,11 @@
   <p class="section-body">Let's Get Talking is a physical card deck designed to scaffold emotionally meaningful dialogue through progressive depth levels and two distinct card modes.</p>
   <div class="product-layout">
     <div class="card-fan">
-      <div class="fan-card"><img src="/mnt/user-data/uploads/Card-Regular-lv1.png" alt="Regular Level 1"></div>
-      <div class="fan-card"><img src="/mnt/user-data/uploads/Card-Regular-lv2.png" alt="Regular Level 2"></div>
-      <div class="fan-card"><img src="/mnt/user-data/uploads/Card-Regular-lv3.png" alt="Regular Level 3"></div>
-      <div class="fan-card"><img src="/mnt/user-data/uploads/Card-Couples-lv2.png" alt="Couple Level 2"></div>
-      <div class="fan-card"><img src="/mnt/user-data/uploads/Card-Skip.png" alt="Skip card"></div>
+      <div class="fan-card"><img src="./Images/Card-Regular-lv1.png" alt="Regular Level 1"></div>
+      <div class="fan-card"><img src="./Images/Card-Regular-lv2.png" alt="Regular Level 2"></div>
+      <div class="fan-card"><img src="./Images/Card-Regular-lv3.png" alt="Regular Level 3"></div>
+      <div class="fan-card"><img src="./Images/Card-Couples-lv2.png" alt="Couple Level 2"></div>
+      <div class="fan-card"><img src="./Images/Card-Skip.png" alt="Skip card"></div>
     </div>
     <div>
       <ul class="mechanics-list">
@@ -686,10 +686,10 @@
         <div class="shadow-card shadow-card-1"></div>
         <div class="shadow-card shadow-card-2"></div>
         <div class="game-card-back" id="cardBack">
-          <img src="/mnt/user-data/uploads/Card-Back.png" alt="Card back">
+          <img src="./Images/Card-Back.png" alt="Card back">
         </div>
         <div class="game-card-front" id="cardFront">
-          <img id="cardFrontImg" src="/mnt/user-data/uploads/Card-Regular-lv1.png" alt="Card front">
+          <img id="cardFrontImg" src="./Images/Card-Couples-lv1.png" alt="Card front V1">
         </div>
       </div>
       <div class="level-dot-row">
@@ -758,21 +758,23 @@
 
 <script>
 const groupCards = [
-  '/mnt/user-data/uploads/Card-Regular-lv1.png',
-  '/mnt/user-data/uploads/Card-Regular-lv2.png',
-  '/mnt/user-data/uploads/Card-Regular-lv2.png',
-  '/mnt/user-data/uploads/Card-Regular-lv3.png',
-  '/mnt/user-data/uploads/Card-Regular-lv3.png',
-  '/mnt/user-data/uploads/Card-Skip.png',
+  './Images/Card-Regular-lv1.png',
+  './Images/Card-Regular-lv2.png',
+  './Images/Card-Regular-lv2.png',
+  './Images/Card-Regular-lv3.png',
+  './Images/Card-Regular-lv3.png',
+  './Images/Card-Skip.png',
 ];
+
 const coupleCards = [
-  '/mnt/user-data/uploads/Card-Couples-lv1.png',
-  '/mnt/user-data/uploads/Card-Couples-lv2.png',
-  '/mnt/user-data/uploads/Card-Couples-lv2.png',
-  '/mnt/user-data/uploads/Card-Couples-lv3.png',
-  '/mnt/user-data/uploads/Card-Couples-lv3.png',
-  '/mnt/user-data/uploads/Card-Skip.png',
+  './Images/Card-Couples-lv1.png',
+  './Images/Card-Couples-lv2.png',
+  './Images/Card-Couples-lv2.png',
+  './Images/Card-Couples-lv3.png',
+  './Images/Card-Couples-lv3.png',
+  './Images/Card-Skip.png',
 ];
+
 const levelMap = { group: [0,1,1,2,2,0], couple: [0,1,1,2,2,0] };
 const levelLabels = { group: ['Level 1','Level 2','Level 2','Level 3','Level 3','Skip'], couple: ['Level 1','Level 2','Level 2','Level 3','Level 3','Skip'] };
 
@@ -829,7 +831,7 @@ function prevCard() {
 
 function skipCard() {
   // Show the Skip card briefly, then advance
-  const skipSrc = '/mnt/user-data/uploads/Card-Skip.png';
+  const skipSrc = './Images/Card-Skip.png';
   const img = document.getElementById('cardFrontImg');
   const display = document.getElementById('cardDisplay');
 
